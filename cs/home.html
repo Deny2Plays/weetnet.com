@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <script src="urls.js"></script>
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEETNET.com</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <style>
+        button.english{
+            background-image: url('../imgs/english-flag.png'); 
+            background-size: contain; 
+            background-repeat: no-repeat;
+            background-position: center; 
+            background-color: transparent;
+            border: 1px solid white; 
+            width: 51px; 
+            aspect-ratio: 12/6.2;
+            cursor: pointer;
+            margin-right: 30px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar active">
+        <div class="navdiv">
+            <div class="logo">
+                <a href="./home.html"><img src="../imgs/logo.png" alt="Logo"></a>
+            </div>
+            <div class="nav-links nav-links1">
+                <li><a href="./home.html" id="Domů" class="active">DOMŮ</a></li>
+                <li><a href="./items.html" id="Produkty">ITEMS</a></li>
+                <li><a href="./faq.html" id="FAQ">FAQ</a></li>
+                <li><a href="./navod.html" id="Návod">NÁVOD</a></li>
+            </div>
+            <div class="nav-icons nav-icons1">
+                <li><a href="https://discord.gg/hwWNhaWZuK" target="_blank" class="discord"><i class='bx bxl-discord-alt'></i></a></li>
+                <li><a href="https://www.youtube.com/@Drago-warr1or" target="_blank" class="youtube"><i class='bx bxl-youtube'></i></a></li>
+                <li><a href="https://www.tiktok.com/@drago_hauls" target="_blank" class="tiktok"><i class='bx bxl-tiktok'></i></a></li>
+                <button class="english"></button>
+            </div>
+            <i class='bx bx bx-menu' id="menu-icon" onclick="kliknutiMenu()"></i>
+            
+        </div>
+        <div class="obsah-navu">
+            <div class="nav-links nav-links2">
+                <li><a href="./home.html" id="Domů" class="active">DOMŮ</a></li>
+                <li><a href="./items.html" id="Produkty">ITEMS</a></li>
+                <li><a href="./faq.html" id="FAQ">FAQ</a></li>
+                <li><a href="./navod.html" id="Návod">NÁVOD</a></li>
+            </div>
+            <div class="nav-icons nav-icons2">
+                <li><a href="https://discord.gg/hwWNhaWZuK" target="_blank" class="discord"><i class='bx bxl-discord-alt'></i></a></li>
+                <li><a href="https://www.youtube.com/@Drago-warr1or" target="_blank" class="youtube"><i class='bx bxl-youtube'></i></a></li>
+                <li><a href="https://www.tiktok.com/@drago_hauls" target="_blank" class="tiktok"><i class='bx bxl-tiktok'></i></a></li>
+                <button class="english"></button>
+            </div>
+        </div>
+    </nav>
+    <section id="Domů">
+        <div class="btm">
+            <img src="../imgs/logo.png" alt="Logo" class="logo-home">
+            <div class="top">
+                <div id="search-container">
+                    <input type="search" id="search-input" placeholder="Vyhledej produkty..." autocomplete="off">
+                    <div class="search" onclick="searchItems()">
+                        <i class='bx bx-search' id="search"></i>
+                    </div>
+                    <div id="autocomplete-results"></div>
+                </div>
+            </div>
+            <div class="linky-div">
+                <div class="link-registrace" onclick="prevestRegistrace()">
+                    <p class="textik-linku-home">REGISTRACE MULEBUY</p>
+                </div>
+                <div class="link-deadLink" onclick="prevestDeadLink()">
+                    <p class="textik-linku-home">NAHLÁŠENÍ DEADLINKU</p>
+                </div>
+            </div>
+        </div>
+        <iframe class="home-video" src="https://www.youtube.com/embed/Fr6XnJhh8Y0?si=-OgOAPEPz7ntxKC-" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </section>
+    <section id="Produkty">
+        <div class="produkty-div">
+            <h1 class="home-podpis2">Vybrané produkty</h1>
+            <div class="scroller">
+                <div class="scroller-boxy">
+                    <div class="box">
+                        <div class="image-boxu">
+                            <img src="../imgs/imgs-produktu/VESTTNF14.jpg" alt="Obrázek">
+                        </div>
+                        <h2 class="jmeno-produktu">TNF VEST TOP BATCH</h2>
+                        <p class="cena-produktu">$27</p>
+                        <div class="koupit-div">
+                            <a href="https://mulebuy.com/product/?shop_type=weidian&id=7287615245&ref=20200168469" class="koupit">Koupit</a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="image-boxu">
+                            <img src="../imgs/imgs-produktu/GxBatchAJ4.jpg" alt="Obrázek">
+                        </div>
+                        <h2 class="jmeno-produktu">Pure GX AJ4</h2>
+                        <p class="cena-produktu">$33</p>
+                        <div class="koupit-div">
+                            <a href="https://mulebuy.com/product/?shop_type=weidian&id=7275858970" class="koupit">Koupit</a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="image-boxu">
+                            <img src="../imgs/imgs-produktu/BESTTNF25.jpg" alt="Obrázek">
+                        </div>
+                        <h2 class="jmeno-produktu">North Face Puffer 700 (Best Batch)</h2>
+                        <p class="cena-produktu">$44</p>
+                        <div class="koupit-div">
+                            <a href="https://mulebuy.com/product/?shop_type=weidian&id=6677196031&ref=%20200168469" class="koupit">Koupit</a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="image-boxu">
+                            <img src="../imgs/imgs-produktu/ssssss.jpg" alt="Obrázek">
+                        </div>
+                        <h2 class="jmeno-produktu">Travis Scott Air Jordan 1 Mocha</h2>
+                        <p class="cena-produktu">$28</p>
+                        <div class="koupit-div">
+                            <a href="https://mulebuy.com/product/?shop_type=weidian&id=7237059504&ref=200168469" class="koupit">Koupit</a>
+                        </div>
+                    </div>  
+
+                    <div class="box">
+                        <div class="image-boxu">
+                            <img src="../imgs/imgs-produktu/5.png" alt="Obrázek">
+                        </div>
+                        <h2 class="jmeno-produktu">Nike Dunk SB Blue</h2>
+                        <p class="cena-produktu">$49.33</p>
+                        <div class="koupit-div">
+                            <a href="https://mulebuy.com/product/?shop_type=weidian&id=7231845598&ref=200168469" class="koupit">Koupit</a>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="image-boxu">
+                            <img src="../imgs/imgs-produktu/M9.jpg" alt="Obrázek">
+                        </div>
+                        <h2 class="jmeno-produktu">Stussy Hoodies (19-Colors)</h2>
+                        <p class="cena-produktu">$16</p>
+                        <div class="koupit-div">
+                            <a href="https://mulebuy.com/product/?shop_type=weidian&id=7246497271&ref= 200168469" class="koupit">Koupit</a>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="image-boxu">
+                            <img src="../imgs/imgs-produktu/M16.avif" alt="Obrázek">
+                        </div>
+                        <h2 class="jmeno-produktu">Essentials Hoodie (4+ Colors)</h2>
+                        <p class="cena-produktu">$12</p>
+                        <div class="koupit-div">
+                            <a href="https://mulebuy.com/product/?shop_type=taobao&id=677466439914&ref=200168469" class="koupit">Koupit</a>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="image-boxu">
+                            <img src="../imgs/imgs-produktu/M18.jpg" alt="Obrázek">
+                        </div>
+                        <h2 class="jmeno-produktu">Nike Nocta Tech Fleece Tracksuit Set (32-Colors)</h2>
+                        <p class="cena-produktu">$38</p>
+                        <div class="koupit-div">
+                            <a href="https://mulebuy.com/product/?shop_type=weidian&id=7246543035&ref= 200168469" class="koupit">Koupit</a>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="image-boxu">
+                            <img src="../imgs/imgs-produktu/M19.jpg" alt="Obrázek">
+                        </div>
+                        <h2 class="jmeno-produktu">Nike Tech Fleece Tracksuit Set (3-Colors)</h2>
+                        <p class="cena-produktu">$43</p>
+                        <div class="koupit-div">
+                            <a href="https://mulebuy.com/product/?shop_type=weidian&id=7247459288&ref= 200168469" class="koupit">Koupit</a>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="image-boxu">
+                            <img src="../imgs/imgs-produktu/M22.jpg" alt="Obrázek">
+                        </div>
+                        <h2 class="jmeno-produktu">Synaworld Tracksuit Set (4-Colors)</h2>
+                        <p class="cena-produktu">$34</p>
+                        <div class="koupit-div">
+                            <a href="https://mulebuy.com/product/?shop_type=weidian&id=7246519037&ref= 200168469" class="koupit">Koupit</a>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="image-boxu">
+                            <img src="../imgs/imgs-produktu/BAPESHORTS19.jpg" alt="Obrázek">
+                        </div>
+                        <h2 class="jmeno-produktu">Bape Shorts</h2>
+                        <p class="cena-produktu">$12</p>
+                        <div class="koupit-div">
+                            <a href="https://mulebuy.com/product/?shop_type=weidian&id=7252112466&ref=20200168469" class="koupit">Koupit</a>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="image-boxu">
+                            <img src="../imgs/imgs-produktu/x14.avif" alt="Obrázek">
+                        </div>
+                        <h2 class="jmeno-produktu">Stussy Bag</h2>
+                        <p class="cena-produktu">$6</p>
+                        <div class="koupit-div">
+                            <a href="https://mulebuy.com/product/?shop_type=taobao&id=778768658958&ref=200168469" class="koupit">Koupit</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="produkty"><a href="./items.html">Všechny Produkty</a></div>
+        </div>
+    </section>
+    <footer>
+        <a href="https://www.denisdrexler.eu" target="_blank">Copyright 2025 by Denis Drexler <i class='bx bx-link-external'></i></a>
+    </footer>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Vítej na webu. Tento web vytvořil Denis Drexler.")
+            const domuLink = document.querySelector('.nav-links li a[id="Domů"]');
+            if (domuLink) {
+                domuLink.classList.add('active');
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const boxes = document.querySelectorAll('.box');
+            
+            boxes.forEach(box => {
+                box.addEventListener('click', function(event) {
+                    if (event.target.tagName === 'A') {
+                        event.preventDefault();
+                    }
+                    
+                    const link = this.querySelector('.koupit');
+                    if (link) {
+                        window.open(link.href);
+                    }
+                });
+
+                box.style.cursor = 'pointer';
+            });
+        });
+        document.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links li a');
+            
+            let currentSection = '';
+
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop-200; 
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                    currentSection = section.id;
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove('active');
+            });
+
+            if (currentSection) {
+                const activeLink = document.querySelector(`.nav-links li a[id="${currentSection}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        })
+        const englishElements = document.querySelectorAll('.english');
+        englishElements.forEach(ele=>{
+            ele.onclick = function(){
+                window.location.href = '../en/home.html'; 
+            }
+        })
+        ScrollReveal({
+            reset: false,
+            distance: "100px",
+            duration: 2000,
+            delay: 200
+        });
+
+        ScrollReveal().reveal('.logo-home', { origin: "bottom" });
+        ScrollReveal().reveal('.home-podpis1, .produkty-div, .produkty, .home-video', { origin: "bottom" });
+        ScrollReveal().reveal('.home-podpis2', { origin: "rigth" });
+        ScrollReveal().reveal(`.navbar`, { origin: `top`})
+        ScrollReveal().reveal(`.btm`, { origin: `bottom` })
+
+
+        function searchItems() {
+            const searchQuery = document.getElementById('search-input').value;
+            if (searchQuery.trim()) {
+                    window.location.href = `./items.html?search=${encodeURIComponent(searchQuery)}`;
+                }
+        }
+
+        document.getElementById("search-input").addEventListener("keypress", (event) => {
+            if(event.key === "Enter") {
+                searchItems()
+            }
+        });
+
+        function prevestRegistrace(params) {
+            window.open("https://mulebuy.com/register/?ref=200168469", "_blank");
+        }
+        function prevestDeadLink(params) {
+            window.open("https://docs.google.com/forms/d/e/1FAIpQLSdoKqboPMb8Js9ZKtefmCIj4dS6UxroUuUj_4G9kghMNE7qAg/viewform", "_blank");
+        }
+
+
+        const scrollers = document.querySelectorAll(".scroller")
+        if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+            addAnimation()
+        }
+
+        function addAnimation() {
+        scrollers.forEach((scroller) => {
+            scroller.setAttribute("data-animated", true);
+
+            const scrollerInner = scroller.querySelector(".scroller-boxy");
+            const scrollerContent = Array.from(scrollerInner.children);
+
+            scrollerContent.forEach(item => {
+                const duplicatedItem = item.cloneNode(true);
+                duplicatedItem.setAttribute("aria-hidden", true);
+                scrollerInner.appendChild(duplicatedItem);
+            });
+
+            scrollerContent.forEach(item => {
+                const duplicatedItem = item.cloneNode(true);
+                duplicatedItem.setAttribute("aria-hidden", true);
+                scrollerInner.appendChild(duplicatedItem);
+            });
+        });
+    }
+
+    function kliknutiMenu(){
+        let menuIcon = document.querySelector("#menu-icon")
+        let navbar = document.querySelector(".navbar")
+        menuIcon.classList.toggle("bx-x-circle")
+        navbar.classList.toggle("active")
+    }
+
+
+    // hledani zobrazeni
+    const searchInput = document.getElementById('search-input');
+    const autocompleteResults = document.getElementById('autocomplete-results');
+    const linkyDiv = document.querySelector('.linky-div')
+    let produkty = [];
+
+    async function loadProdukty() {
+        const response = await fetch('../databaze.json');
+        produkty = await response.json();
+    }
+
+    loadProdukty();
+
+    searchInput.addEventListener('input', function() {
+        const inputValue = this.value.toLowerCase();
+        const filteredProdukty = produkty.filter(produkt => 
+            produkt.nazev.toLowerCase().includes(inputValue)
+        ).slice(0, 3);
+
+        displayAutocomplete(filteredProdukty);
+    });
+
+    let selectedIndex = -1
+
+    function displayAutocomplete(results) {
+        if (results.length === 0 || searchInput.value === '') {
+            autocompleteResults.style.display = 'none';
+            searchInput.style.borderRadius = "30px";
+            linkyDiv.classList.remove('pushed-down');
+            selectedIndex = -1;
+            return;
+        } else {
+            searchInput.style.borderRadius = "30px 30px 0 0";
+            linkyDiv.classList.add('pushed-down');
+        }
+
+        autocompleteResults.innerHTML = '';
+        results.forEach((result, index) => {
+            const div = document.createElement('div');
+            div.className = 'autocomplete-item';
+            div.innerHTML = `
+                <img src="${result.fotka}" alt="${result.nazev}" class="product-image">
+                <span class="product-name">${result.nazev}</span>
+                <span class="product-price">${result.cena} $</span>
+            `;
+            div.addEventListener('click', function() {
+                window.open(result.url, '_blank')
+            });
+            autocompleteResults.appendChild(div);
+        });
+
+        autocompleteResults.style.display = 'block';
+        selectedIndex = -1;
+    }
+
+    searchInput.addEventListener('keydown', function(e) {
+        const items = autocompleteResults.getElementsByClassName('autocomplete-item');
+        
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (selectedIndex === -1) {
+                selectedIndex = 0;
+            } else {
+                selectedIndex = (selectedIndex < items.length - 1) ? selectedIndex + 1 : items.length - 1;
+            }
+            updateSelection(items);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (selectedIndex === 0) {
+                selectedIndex = -1;
+            } else {
+                selectedIndex = (selectedIndex > 0) ? selectedIndex - 1 : -1;
+            }
+            updateSelection(items);
+        } else if (e.key === 'Enter') {
+            e.preventDefault();
+            if (selectedIndex > -1) {
+                window.open(produkty[selectedIndex].url, '_blank')
+            } else {
+                searchItems();
+            }
+        }
+    });
+
+    function updateSelection(items) {
+        for (let i = 0; i < items.length; i++) {
+            if (i === selectedIndex) {
+                items[i].classList.add('selected');
+            } else {
+                items[i].classList.remove('selected');
+            }
+        }
+        
+        if (selectedIndex === -1) {
+            searchInput.focus();
+        } else {
+            items[selectedIndex].focus();
+        }
+    }
+
+    document.addEventListener('click', function(e) {
+        if (!searchInput.contains(e.target) && !autocompleteResults.contains(e.target)) {
+            autocompleteResults.style.display = 'none';
+            searchInput.style.borderRadius = "30px"
+        linkyDiv.classList.remove('pushed-down')
+        }
+    });
+
+    function searchItems() {
+        const searchQuery = searchInput.value;
+        if (searchQuery.trim()) {
+            window.location.href = `./items.html?search=${encodeURIComponent(searchQuery)}`;
+        }
+    }
+    </script>
+    
+</body>
+</html>

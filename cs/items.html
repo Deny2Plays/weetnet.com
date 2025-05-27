@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <script src="urls.js"></script>
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEETNET.com</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <style>
+        button.english{
+            background-image: url('../imgs/english-flag.png'); 
+            background-size: contain; 
+            background-repeat: no-repeat;
+            background-position: center; 
+            background-color: transparent;
+            border: 1px solid white; 
+            width: 51px; 
+            aspect-ratio: 12/6.2;
+            cursor: pointer;
+            margin-right: 30px;
+        }
+        
+        
+        .konec{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        .nacistDalsi{
+            padding: 15px 50px;
+            margin-top: -150px;
+            background-color: #1a1a1a;
+            color: white !important;
+            border-radius: 15px;
+            transition: .2s;
+            border: 2px solid white;
+            font-family: "MyCustomFontNoBold", sans-serif;
+        }
+
+        .nacistDalsi:hover{
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar active">
+        <div class="navdiv">
+            <div class="logo">
+                <a href="./home.html"><img src="../imgs/logo.png" alt="Logo"></a>
+            </div>
+            <div class="nav-links nav-links1">
+                <li><a href="./home.html" id="Domů">DOMŮ</a></li>
+                <li><a href="./items.html" id="Produkty" class="active">ITEMS</a></li>
+                <li><a href="./faq.html" id="FAQ">FAQ</a></li>
+                <li><a href="./navod.html" id="Návod">NÁVOD</a></li>
+            </div>
+            <div class="nav-icons nav-icons1">
+                <li><a href="https://discord.gg/hwWNhaWZuK" target="_blank" class="discord"><i class='bx bxl-discord-alt'></i></a></li>
+                <li><a href="https://www.youtube.com/@Drago-warr1or" target="_blank" class="youtube"><i class='bx bxl-youtube'></i></a></li>
+                <li><a href="https://www.tiktok.com/@drago_hauls" target="_blank" class="tiktok"><i class='bx bxl-tiktok'></i></a></li>
+                <button class="english"></button>
+            </div>
+            <i class='bx bx bx-menu' id="menu-icon" onclick="kliknutiMenu()"></i>
+            
+        </div>
+        <div class="obsah-navu">
+            <div class="nav-links nav-links2">
+                <li><a href="./home.html" id="Domů">DOMŮ</a></li>
+                <li><a href="./items.html" id="Produkty" class="active">ITEMS</a></li>
+                <li><a href="./faq.html" id="FAQ">FAQ</a></li>
+                <li><a href="./navod.html" id="Návod">NÁVOD</a></li>
+            </div>
+            <div class="nav-icons nav-icons2">
+                <li><a href="https://discord.gg/hwWNhaWZuK" target="_blank" class="discord"><i class='bx bxl-discord-alt'></i></a></li>
+                <li><a href="https://www.youtube.com/@Drago-warr1or" target="_blank" class="youtube"><i class='bx bxl-youtube'></i></a></li>
+                <li><a href="https://www.tiktok.com/@drago_hauls" target="_blank" class="tiktok"><i class='bx bxl-tiktok'></i></a></li>
+                <button class="english"></button>
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <div class="top">
+            <div id="search-container" class="search-container-items">
+                <input type="search" id="search-input" placeholder="Vyhledej produkty..." maxlength="40">
+                <div id="search">
+                    <i class='bx bx-search' id="search"></i>
+                </div>
+                <div id="autocomplete-results"></div>
+            </div>
+            <div id="buttons">
+                <button class="button-value active" onclick="filterProducts(`ALL`)">Vše</button>
+                <button class="button-value" onclick="filterProducts(`BOTY`)">Boty</button>
+                <button class="button-value" onclick="filterProducts(`100Cent`)">100Cent</button>
+                <button class="button-value" onclick="filterProducts(`REPSUN`)">Repsun</button>
+                <button class="button-value" onclick="filterProducts(`MIKINY`)">Mikiny</button>
+                <button class="button-value" onclick="filterProducts(`TRIČKA`)">Trička</button>
+                <button class="button-value" onclick="filterProducts(`BUNDY`)">Bundy</button>
+                <button class="button-value" onclick="filterProducts(`TEPLÁKY`)">Tepláky</button>
+                <button class="button-value" onclick="filterProducts(`PONOŽKY`)">Ponožky</button>
+                <button class="button-value" onclick="filterProducts(`KRAŤASY`)">Kraťasy</button>
+                <button class="button-value" onclick="filterProducts(`ČEPICE`)">Čepice</button>
+                <button class="button-value" onclick="filterProducts(`DOPLŇKY`)">Doplňky</button>
+                <button class="button-value" onclick="filterProducts(`GYM`)">Gym</button>
+                <button class="button-value" onclick="filterProducts(`OSTATNÍ`)">Ostatní</button>
+            </div>
+        </div>
+        <div id="products"></div>
+    </div>
+    <button id="back-to-top">
+        <i class='bx bx-up-arrow-alt'></i>
+    </button>
+    <div class="konec">
+        <div id="nacistDalsi" class="nacistDalsi">Načíst další</div>
+    </div>
+    <footer>
+        <a href="https://www.denisdrexler.eu" target="_blank">Copyright 2025 by Denis Drexler <i class='bx bx-link-external'></i></a>
+    </footer>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script>
+        let produktyNaNacteni = 100
+        const produktyNaStranu = 100
+        let kategorie = "ALL"
+
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("back-to-top").style.display = "block";
+            } else {
+                document.getElementById("back-to-top").style.display = "none";
+            }
+        }
+
+        document.getElementById("back-to-top").onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+        const englishElements = document.querySelectorAll('.english');
+        englishElements.forEach(ele=>{
+            ele.onclick = function(){
+                window.location.href = '../en/items.html'; 
+            }
+        })
+        ScrollReveal({
+            reset: true,
+            distance: "100px",
+            duration: 2000,
+            delay: 0
+        });
+
+        ScrollReveal().reveal(`.top`, {origin: `right`, reset: false})
+        ScrollReveal().reveal(`.navbar`, { origin: `top`, reset: false })
+        ScrollReveal().reveal(`#products, #buttons`, { origin: `bottom`, reset: false })
+
+
+        // produkty
+        
+        
+
+
+        document.querySelector(".nacistDalsi").addEventListener("click", ()=>{
+            zobraziProdukty()
+        })
+
+        async function zobraziProdukty() {
+            console.log(kategorie)
+            let produktyCont = document.getElementById("products")
+            const response = await fetch('../databaze.json');
+            const produkty = await response.json();
+            let produktyKeZobrazeni
+            if(kategorie == "ALL"){
+                produktyKeZobrazeni = produkty.slice(produktyNaNacteni, produktyNaNacteni + produktyNaStranu);
+            }else{
+                let arr = []
+                let pocet = 0
+                produkty.forEach(ele => {
+                    if(ele.kategorie.toUpperCase() === kategorie.toUpperCase()){
+                        arr.push(ele)
+                        pocet++
+                    }
+                })
+                produktyKeZobrazeni = arr.slice(produktyNaNacteni, produktyNaNacteni+produktyNaStranu)
+            }
+            
+            produktyKeZobrazeni.forEach(i => {
+                let card = document.createElement("div");
+                card.classList.add("box", i.kategorie);
+                card.addEventListener("click", () => {
+                    window.open(i.url, "_blank");
+                });
+
+                let imgContainer = document.createElement("div");
+                imgContainer.classList.add("image-boxu");
+                let img = document.createElement("img");
+                img.setAttribute("src", i.fotka);
+                imgContainer.appendChild(img);
+                card.appendChild(imgContainer);
+
+                let container = document.createElement("div");
+                container.classList.add("container");
+                let name = document.createElement("h2");
+                name.classList.add("jmeno-produktu");
+                name.innerText = i.nazev;
+                container.appendChild(name);
+                card.appendChild(container);
+
+                let price = document.createElement("p");
+                price.classList.add("cena-produktu");
+                price.innerText = "$" + i.cena;
+                container.appendChild(price);
+
+                let koupitProdukt = document.createElement("div");
+                koupitProdukt.classList.add("koupit-div");
+                const odkaz = document.createElement('a');
+                odkaz.href = i.url;
+                odkaz.classList.add("koupit");
+                odkaz.innerText = 'Koupit';
+                koupitProdukt.appendChild(odkaz);
+                card.appendChild(koupitProdukt);
+
+                produktyCont.appendChild(card);
+            });
+            produktyNaNacteni += produktyKeZobrazeni.length;
+            let nextProducts;
+            if(kategorie == "ALL"){
+                nextProducts = produkty.slice(produktyNaNacteni, produktyNaNacteni + produktyNaStranu);
+            }else{
+                let arr = []
+                let pocet = 0
+                produkty.forEach(ele => {
+                    if(ele.kategorie.toUpperCase() === kategorie.toUpperCase()){
+                        arr.push(ele)
+                        pocet++
+                    }
+                })
+                nextProducts = arr.slice(produktyNaNacteni, produktyNaNacteni+produktyNaStranu)
+            }
+
+            if (nextProducts.length === 0) {
+                document.getElementById("nacistDalsi").style.display = "none";
+            } else {
+                document.getElementById("nacistDalsi").style.display = "flex";
+            }
+        }
+
+
+
+        async function nacistZobrazitProdukty() {
+            try {
+                const response = await fetch('../databaze.json');
+                const produkty = await response.json();
+
+                for(let i of produkty){
+                    let card = document.createElement("div")
+                    card.classList.add("box", i.kategorie, "hide") 
+                    card.addEventListener("click", ()=>{
+                        window.open(i.url, "_blank");
+                    })
+                    let imgContainer = document.createElement("div")
+                    imgContainer.classList.add("image-boxu")
+                    let img = document.createElement("img")
+                    img.setAttribute("src", i.fotka)
+                    imgContainer.appendChild(img)
+                    card.appendChild(imgContainer)
+                    let container = document.createElement("div")
+                    container.classList.add("container")
+                    let name = document.createElement("h2")
+                    name.classList.add("jmeno-produktu")
+                    name.innerText = i.nazev
+                    container.appendChild(name)
+                    card.appendChild(container)
+                    let price = document.createElement("p")
+                    price.classList.add("cena-produktu")
+                    price.innerText = "$"+i.cena
+                    container.appendChild(price)
+                    let koupitProdukt = document.createElement("div")
+                    koupitProdukt.classList.add("koupit-div")
+                    const odkaz = document.createElement('a');
+                    odkaz.href = i.url;
+                    odkaz.classList.add("koupit")
+                    odkaz.innerText = 'Koupit'
+                    koupitProdukt.appendChild(odkaz)
+                    card.appendChild(koupitProdukt)
+                    
+                    document.getElementById("products").appendChild(card)
+                }
+                return true
+            } catch (error) {
+                console.error('chyba: ', error);
+                return false
+            }
+        }
+        async function nacistZobrazitProdukty2() {
+            try {
+                const response = await fetch('../databaze.json');
+                const produkty1 = await response.json();
+                const produkty = await produkty1.splice(0,produktyNaStranu)
+
+                for(let i of produkty){
+                    let card = document.createElement("div")
+                    card.classList.add("box", i.kategorie, "hide") 
+                    card.addEventListener("click", ()=>{
+                        window.open(i.url, "_blank");
+                    })
+                    let imgContainer = document.createElement("div")
+                    imgContainer.classList.add("image-boxu")
+                    let img = document.createElement("img")
+                    img.setAttribute("src", i.fotka)
+                    imgContainer.appendChild(img)
+                    card.appendChild(imgContainer)
+                    let container = document.createElement("div")
+                    container.classList.add("container")
+                    let name = document.createElement("h2")
+                    name.classList.add("jmeno-produktu")
+                    name.innerText = i.nazev
+                    container.appendChild(name)
+                    card.appendChild(container)
+                    let price = document.createElement("p")
+                    price.classList.add("cena-produktu")
+                    price.innerText = "$"+i.cena
+                    container.appendChild(price)
+                    let koupitProdukt = document.createElement("div")
+                    koupitProdukt.classList.add("koupit-div")
+                    const odkaz = document.createElement('a');
+                    odkaz.href = i.url;
+                    odkaz.classList.add("koupit")
+                    odkaz.innerText = 'Koupit'
+                    koupitProdukt.appendChild(odkaz)
+                    card.appendChild(koupitProdukt)
+                    
+                    document.getElementById("products").appendChild(card)
+                }
+                
+                return true
+            } catch (error) {
+                console.error('chyba: ', error);
+                return false
+            }
+        }
+
+        document.getElementById("search-input").addEventListener("keypress", (event) => {
+            if(event.key === "Enter") {
+                document.getElementById("search").click();
+            }
+        });
+        document.getElementById("search").addEventListener("click", () => {
+            let searchInput2 = document.getElementById("search-input")
+            let searchInput = document.getElementById("search-input").value
+            let elements = document.querySelectorAll(".jmeno-produktu")
+            let cards = document.querySelectorAll(".box")
+            
+            function performSearch(){
+                searchInput2.blur()
+            }
+            performSearch();
+            elements.forEach((element,index)=>{
+                if(element.innerText.toUpperCase().includes(searchInput.toUpperCase())) {
+                    cards[index].classList.remove("hide")
+                }else{
+                    cards[index].classList.add("hide")
+                }
+            })
+        })
+
+
+        
+        window.onload = async() => {
+            await nacistZobrazitProdukty2()
+            let elements = document.querySelectorAll(".box")
+            elements.forEach(element => {
+                element.classList.remove("hide")
+            })
+        }
+        async function filterProducts(value) {
+            document.getElementById("nacistDalsi").style.display = "flex";
+            kategorie = value
+            produktyNaNacteni = 100
+            const response = await fetch("../databaze.json")
+            const produkty = await response.json();
+            let filteredProducts = [];
+
+            if (value.toUpperCase() === "ALL") {
+                filteredProducts = produkty.splice(0,produktyNaStranu);
+            } else {
+                let po = 0
+                produkty.forEach(ele=>{
+                    console.log(ele)
+                    if((ele.kategorie.toUpperCase() === value.toUpperCase()) && po<produktyNaStranu){
+                        filteredProducts.push(ele)
+                        po++
+                    }
+                })
+            }
+            document.getElementById("products").innerHTML = ''
+            filteredProducts.forEach(i => {
+                let card = document.createElement("div");
+                card.classList.add("box", i.kategorie, "hide");
+                card.classList.remove("hide")
+                card.addEventListener("click", () => {
+                    window.open(i.url, "_blank");
+                });
+
+                let imgContainer = document.createElement("div");
+                imgContainer.classList.add("image-boxu");
+                let img = document.createElement("img");
+                img.setAttribute("src", i.fotka);
+                imgContainer.appendChild(img);
+                card.appendChild(imgContainer);
+
+                let container = document.createElement("div");
+                container.classList.add("container");
+                let name = document.createElement("h2");
+                name.classList.add("jmeno-produktu");
+                name.innerText = i.nazev;
+                container.appendChild(name);
+                card.appendChild(container);
+
+                let price = document.createElement("p");
+                price.classList.add("cena-produktu");
+                price.innerText = "$" + i.cena;
+                container.appendChild(price);
+
+                let koupitProdukt = document.createElement("div");
+                koupitProdukt.classList.add("koupit-div");
+                const odkaz = document.createElement('a');
+                odkaz.href = i.url;
+                odkaz.classList.add("koupit");
+                odkaz.innerText = 'Koupit';
+                koupitProdukt.appendChild(odkaz);
+                card.appendChild(koupitProdukt);
+
+                document.getElementById("products").appendChild(card);
+                document.getElementById("products").classList.remove("hide")
+            });
+            let buttons = document.querySelectorAll(".button-value");
+            buttons.forEach(button => {
+                if (value.toUpperCase() === button.innerText.toUpperCase() || 
+                    (value.toUpperCase() === "ALL" && button.innerText.toUpperCase() === "VŠE")) {
+                    button.classList.add("active");
+                } else {
+                    button.classList.remove("active");
+                }
+                document.getElementById("search-input").value = ""
+            });
+            let nextProducts;
+            if(kategorie == "ALL"){
+                nextProducts = produkty.slice(produktyNaNacteni, produktyNaNacteni + produktyNaStranu);
+            }else{
+                let arr = []
+                let pocet = 0
+                produkty.forEach(ele => {
+                    if(ele.kategorie.toUpperCase() === kategorie.toUpperCase()){
+                        arr.push(ele)
+                        pocet++
+                    }
+                })
+                nextProducts = arr.slice(produktyNaNacteni, produktyNaNacteni+produktyNaStranu)
+            }
+
+            if (nextProducts.length === 0) {
+                document.getElementById("nacistDalsi").style.display = "none";
+            } else {
+                document.getElementById("nacistDalsi").style.display = "flex";
+            }
+            
+        }
+
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function searchProducts(searchQuery) {
+            let elements = document.querySelectorAll(".jmeno-produktu");
+            let cards = document.querySelectorAll(".box");
+
+            elements.forEach((element, index) => {
+                if (element.innerText.toUpperCase().includes(searchQuery.toUpperCase())) {
+                    cards[index].classList.remove("hide");
+                } else {
+                    cards[index].classList.add("hide");
+                }
+            });
+        }
+
+        window.onload = async () => {
+            await nacistZobrazitProdukty2()
+            let searchQuery = getQueryParam('search');
+            if (searchQuery) {
+                document.getElementById('search-input').value = searchQuery;
+                searchProducts(searchQuery);
+            } else {
+                let elements = document.querySelectorAll(".box");
+                elements.forEach((element) => element.classList.remove("hide"));
+            }
+        };
+        
+
+
+        function kliknutiMenu(){
+            let menuIcon = document.querySelector("#menu-icon")
+            let navbar = document.querySelector(".navbar")
+            menuIcon.classList.toggle("bx-x-circle")
+            navbar.classList.toggle("active")
+        }
+
+
+
+
+        const searchInput = document.getElementById('search-input');
+        const autocompleteResults = document.getElementById('autocomplete-results');
+        const buttonsN = document.querySelector('#buttons')
+        let produkty = [];
+
+        async function loadProdukty() {
+            const response = await fetch('../databaze.json');
+            produkty = await response.json();
+        }
+
+        loadProdukty();
+
+        searchInput.addEventListener('input', function() {
+            const inputValue = this.value.toLowerCase();
+            const filteredProdukty = produkty.filter(produkt => 
+                produkt.nazev.toLowerCase().includes(inputValue)
+            ).slice(0, 3);
+
+            displayAutocomplete(filteredProdukty);
+        });
+
+        let selectedIndex = -1
+
+        function displayAutocomplete(results) {
+            if (results.length === 0 || searchInput.value === '') {
+                autocompleteResults.style.display = 'none';
+                searchInput.style.borderRadius = "30px";
+                buttonsN.classList.remove('pushed-down');
+                selectedIndex = -1;
+                return;
+            } else {
+                searchInput.style.borderRadius = "30px 30px 0 0";
+                buttonsN.classList.add('pushed-down');
+            }
+
+            autocompleteResults.innerHTML = '';
+            results.forEach((result, index) => {
+                const div = document.createElement('div');
+                div.className = 'autocomplete-item';
+                div.innerHTML = `
+                    <img src="${result.fotka}" alt="${result.nazev}" class="product-image">
+                    <span class="product-name">${result.nazev}</span>
+                    <span class="product-price">${result.cena} $</span>
+                `;
+                div.addEventListener('click', function() {
+                    window.open(result.url, '_blank')
+                });
+                autocompleteResults.appendChild(div);
+            });
+
+            autocompleteResults.style.display = 'block';
+            selectedIndex = -1;
+        }
+
+        searchInput.addEventListener('keydown', function(e) {
+            const items = autocompleteResults.getElementsByClassName('autocomplete-item');
+            
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (selectedIndex === -1) {
+                    selectedIndex = 0;
+                } else {
+                    selectedIndex = (selectedIndex < items.length - 1) ? selectedIndex + 1 : items.length - 1;
+                }
+                updateSelection(items);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (selectedIndex === 0) {
+                    selectedIndex = -1;
+                } else {
+                    selectedIndex = (selectedIndex > 0) ? selectedIndex - 1 : -1;
+                }
+                updateSelection(items);
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (selectedIndex > -1) {
+                    window.open(produkty[selectedIndex].url, '_blank')
+                } else {
+                    searchItems();
+                }
+            }
+        });
+
+        function updateSelection(items) {
+            for (let i = 0; i < items.length; i++) {
+                if (i === selectedIndex) {
+                    items[i].classList.add('selected');
+                } else {
+                    items[i].classList.remove('selected');
+                }
+            }
+            
+            if (selectedIndex === -1) {
+                searchInput.focus();
+            } else {
+                items[selectedIndex].focus();
+            }
+        }
+
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !autocompleteResults.contains(e.target)) {
+                autocompleteResults.style.display = 'none';
+                searchInput.style.borderRadius = "30px"
+            buttonsN.classList.remove('pushed-down')
+            }
+        });
+
+        function searchItems() {
+            const searchQuery = searchInput.value;
+            if (searchQuery.trim()) {
+                window.location.href = `./items.html?search=${encodeURIComponent(searchQuery)}`;
+            }
+        }
+    </script>
+    
+</body>
+</html>

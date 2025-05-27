@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEETNET.com</title>
+    <script src="urls.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <style>
+        button.english{
+            background-image: url('../imgs/english-flag.png'); 
+            background-size: contain; 
+            background-repeat: no-repeat;
+            background-position: center; 
+            background-color: transparent;
+            border: 1px solid white; 
+            width: 51px; 
+            aspect-ratio: 12/6.2;
+            cursor: pointer;
+            margin-right: 30px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar active">
+        <div class="navdiv">
+            <div class="logo">
+                <a href="./home.html"><img src="../imgs/logo.png" alt="Logo"></a>
+            </div>
+            <div class="nav-links nav-links1">
+                <li><a href="./home.html" id="Domů">DOMŮ</a></li>
+                <li><a href="./items.html" id="Produkty">ITEMS</a></li>
+                <li><a href="./faq.html" id="FAQ" class="active">FAQ</a></li>
+                <li><a href="./navod.html" id="Návod">NÁVOD</a></li>
+            </div>
+            <div class="nav-icons nav-icons1">
+                <li><a href="https://discord.gg/hwWNhaWZuK" target="_blank" class="discord"><i class='bx bxl-discord-alt'></i></a></li>
+                <li><a href="https://www.youtube.com/@Drago-warr1or" target="_blank" class="youtube"><i class='bx bxl-youtube'></i></a></li>
+                <li><a href="https://www.tiktok.com/@drago_hauls" target="_blank" class="tiktok"><i class='bx bxl-tiktok'></i></a></li>
+                <button class="english"></button>
+            </div>
+            <i class='bx bx bx-menu' id="menu-icon" onclick="kliknutiMenu()"></i>
+            
+        </div>
+        <div class="obsah-navu">
+            <div class="nav-links nav-links2">
+                <li><a href="./home.html" id="Domů">DOMŮ</a></li>
+                <li><a href="./items.html" id="Produkty">ITEMS</a></li>
+                <li><a href="./faq.html" id="FAQ" class="active">FAQ</a></li>
+                <li><a href="./navod.html" id="Návod">NÁVOD</a></li>
+            </div>
+            <div class="nav-icons nav-icons2">
+                <li><a href="https://discord.gg/hwWNhaWZuK" target="_blank" class="discord"><i class='bx bxl-discord-alt'></i></a></li>
+                <li><a href="https://www.youtube.com/@Drago-warr1or" target="_blank" class="youtube"><i class='bx bxl-youtube'></i></a></li>
+                <li><a href="https://www.tiktok.com/@drago_hauls" target="_blank" class="tiktok"><i class='bx bxl-tiktok'></i></a></li>
+                <button class="english"></button>
+            </div>
+        </div>
+    </nav>
+    <div class="faq-container">
+        <h1 class="faq-nadpis">Často kladené otázky</h1>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="plus">+</span>
+                <span class="question-text">Co je WEETNET?</span>
+            </div>
+            <div class="faq-answer">
+                WEETNET je Spreadsheet, který poskytuje odkazy na produkty z MuleBuy, jako jsou Taobao a Weidian. Jejím cílem je informovat kupující, usnadnit proces nákupu a zabránit podvodům. WEETNET nepodporuje prodej padělaného zboží a neprodává žádné fyzické produkty.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="plus">+</span>
+                <span class="question-text">Je používání WEETNET snadné?</span>
+            </div>
+            <div class="faq-answer">
+                Ano, WEETNET je navrženo tak, aby bylo uživatelsky přívětivé. Nabízí přehledné rozhraní pro vyhledávání produktů a získání ověřených odkazů na prodejce.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="plus">+</span>
+                <span class="question-text">Mohu používat WEETNET na mobilních zařízeních?</span>
+            </div>
+            <div class="faq-answer">
+                Ano, webová stránka WEETNET je plně optimalizovaná pro mobilní zařízení, takže ji lze pohodlně používat na smartphonech a tabletech.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="plus">+</span>
+                <span class="question-text">Mohu nakupovat produkty bez použití agenta?</span>
+            </div>
+            <div class="faq-answer">
+                Přímý nákup z čínských platforem, jako jsou Taobao a Weidian, může být složitý kvůli jazykovým bariérám a platebním metodám. Doporučujeme použít nákupního agenta jako je MuleBuy, který zajistí hladký průběh objednávky a dopravy.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="plus">+</span>
+                <span class="question-text">Jaké jsou výhody použití WEETNET?</span>
+            </div>
+            <div class="faq-answer">
+                WEETNET poskytuje ověřené odkazy na produkty, což minimalizuje riziko podvodů. Kromě toho nabízí komunitu a podporu prostřednictvím Discordu, kde můžete sdílet zkušenosti a získat rady.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="plus">+</span>
+                <span class="question-text">Jak se mohu připojit ke komunitě WEETNET?</span>
+            </div>
+            <div class="faq-answer">
+                Můžete se připojit k našemu Discord serveru, který je k dispozici 24/7. Zde můžete získat podporu a komunikovat s ostatními členy komunity.
+            </div>
+        </div>
+    </div>
+    <footer>
+        <a href="https://www.denisdrexler.eu" target="_blank">Copyright 2025 by Denis Drexler <i class='bx bx-link-external'></i></a>
+    </footer>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+        const englishElements = document.querySelectorAll('.english');
+        englishElements.forEach(ele=>{
+            ele.onclick = function(){
+                window.location.href = '../en/faq.html'; 
+            }
+        })
+        ScrollReveal({
+            reset: true,
+            distance: "100px",
+            duration: 2000,
+            delay: 0
+        });
+
+        ScrollReveal().reveal(`.faq-nadpis, .faq-item`, {origin: `right`, reset: false})
+        ScrollReveal().reveal(`.navbar`, { origin: `top`, reset: false })
+        
+
+        function kliknutiMenu(){
+            let menuIcon = document.querySelector("#menu-icon")
+            let navbar = document.querySelector(".navbar")
+            menuIcon.classList.toggle("bx-x-circle")
+            navbar.classList.toggle("active")
+        }
+    </script>
+    
+</body>
+</html>
